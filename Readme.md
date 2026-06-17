@@ -67,7 +67,6 @@ The following documentation is used for testing and validation:
 
 All generated alerts and detections are captured as screenshots and stored in:
 
-```text
-Screengrabs/
-```
+- [Screen Captures](Screengrabs)
+
 
