@@ -1,4 +1,4 @@
-# Linux Network Security Lab (Snort IDS + Firewall + hping)
+# Linux Network Security Lab (Snort + Firewall + Hping3)
 
 This project demonstrates the deployment of a small network security lab using VirtualBox. The environment consists of two Linux virtual machines connected over an isolated internal network.
 
