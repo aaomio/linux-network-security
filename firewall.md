@@ -22,37 +22,37 @@ sudo ufw enable
 
 ---
 
-## Allow SSH Access 
+## UFW Rules
 
-If using SSH for remote access:
-
-```bash
-sudo ufw allow ssh
-```
-
----
-
-## Allow ICMP Traffic (Ping)
-
-By default, ICMP is usually allowed, but verify rule behaviour using Snort.
-
-To explicitly allow ICMP:
+To allow traffic from a specific IP address or subnet to a destination port, use:
 
 ```bash
-sudo ufw allow proto icmp
+sudo ufw allow proto <protocol> from <source-ip-or-subnet> to any port <port-number>
 ```
 
----
-
-## Allow Internal Network Traffic
-
-Allow all traffic within the lab subnet:
+For example, allow VM2 (`192.168.1.20`) to access SSH on VM1 (TCP port 22):
 
 ```bash
-sudo ufw allow from 192.168.1.0/24
+sudo ufw allow proto tcp from 192.168.1.20 to any port 22
 ```
 
-This ensures VM1 and VM2 can communicate for testing IDS rules.
+Allow the entire lab subnet to access a web server on TCP port 80:
+
+```bash
+sudo ufw allow proto tcp from 192.168.1.0/24 to any port 80
+```
+
+Allow the lab subnet to access HTTPS on TCP port 443:
+
+```bash
+sudo ufw allow proto tcp from 192.168.1.0/24 to any port 443
+```
+
+Allow UDP traffic from a specific source to port 53:
+
+```bash
+sudo ufw allow proto udp from 192.168.1.20 to any port 53
+```
 
 ---
 
