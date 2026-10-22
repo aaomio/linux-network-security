@@ -125,4 +125,16 @@ Check listening TCP and UDP sockets:
 sudo ss -tulnp
 ```
 
+Check TCP port 443:
+
+```bash
+sudo ss -tlnp | grep ':443'
+```
+
+Check UDP port 443:
+
+```bash
+sudo ss -ulnp | grep ':443'
+```
+
 
