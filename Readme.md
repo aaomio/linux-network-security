@@ -69,4 +69,60 @@ All generated alerts and detections are captured as screenshots and stored in:
 
 - [Screen Captures](Screengrabs)
 
+## Netcat Installation and Usage
+
+Netcat (`nc`) is a networking utility used to establish connections and listen for incoming TCP or UDP traffic. It can be used alongside hping3 to test firewall rules and verify whether traffic reaches a destination port.
+
+### Install Netcat
+
+On Debian/Ubuntu Linux, run:
+
+```bash
+sudo apt update
+sudo apt install netcat-openbsd
+```
+
+Verify the installation:
+
+```bash
+nc -h
+```
+
+### Listen on a TCP Port
+
+Run the following command on the receiving virtual machine:
+
+```bash
+sudo nc -l 443
+```
+
+- `sudo` runs the command with elevated privileges.
+- `nc` starts Netcat.
+- `-l` enables listening mode.
+- `443` specifies the local TCP port.
+
+Netcat waits for an incoming TCP connection and displays any data received.
+
+### Listen on a UDP Port
+
+To listen for UDP traffic on port 443, run:
+
+```bash
+sudo nc -ul 443
+```
+
+- `-u` selects UDP instead of TCP.
+- `-l` enables listening mode.
+- `443` specifies the local UDP port.
+
+Netcat displays received UDP payloads. UDP is connectionless, so no TCP-style connection is established.
+
+### Verify Listening Ports
+
+Check listening TCP and UDP sockets:
+
+```bash
+sudo ss -tulnp
+```
+
 
